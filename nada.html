@@ -1,0 +1,38 @@
+<div id="distancia">La distancia hasta el punto es: <span> </span>     pixeles.</div>
+<br />
+<div id="texto">
+  <h4>Partiendo del punto de partida que es el 0 de color naranja</h4>
+  <p>Un ejemplo seria calcular la distancia desde el punto que es el 0 de color naranja hasta una caja azul con circulo blanco: </p>
+</div>
+<span id="elemento">0</span>
+
+<div style="margin-top: 200px; border: solid black 1px; width: 200px; height: 200px" >
+	<span id="span">asdas</span>
+</div>
+
+
+<script src="assets/js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	var $distance = $('#distancia span');
+	var $element  = $('#elemento');
+	var $span     = $('#span');
+	
+    function calculateDistance(elem, elem2) {
+        return Math.floor(
+        	Math.sqrt(
+        		Math.pow((
+    				elem2.offset().left+(elem2.width()/2)) - 
+	        		(elem.offset().left+(elem.width()/2)), 2) + 
+	        		Math.pow((elem2.offset().top+(elem2.height()/2)) - 
+	        		(elem.offset().top+(elem.height()/2)
+    			), 2)
+        	)
+        );
+    }
+ 
+    distance = calculateDistance($element, $span);
+    $distance.text(distance);
+});
+</script>
